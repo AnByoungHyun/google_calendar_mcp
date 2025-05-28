@@ -77,7 +77,7 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 {
   "google-calendar": {
     "command": "uv",
-    "args": ["--directory", "<google_calendar_mcp_경로>", "run", "python", "main.py"]
+    "args": ["--directory", "<google_calendar_mcp_경로>", "run", "google-calendar-mcp"]
   }
 }
 ```
