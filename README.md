@@ -78,12 +78,14 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 ```bash
 git clone https://github.com/AnByoungHyun/google_calendar_mcp.git
 cd google_calendar_mcp
+uv venv
 uv pip install -r requirements.txt
 uv sync
 ```
 
 ### 2. uv로 바로 설치
 ```bash
+uv venv
 uv pip install "git+https://github.com/AnByoungHyun/google_calendar_mcp.git"
 uv sync
 ```
