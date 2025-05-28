@@ -11,7 +11,7 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 ---
 
 ## 기술 스택
-- **Python 3**
+- **Python 3.13 이상 (권장: 3.13.3)**
 - **패키지 매니저**: [uv](https://github.com/astral-sh/uv)
 - **MCP 서버**: fastmcp
 - **Google API 연동**: google-api-python-client, google-auth, google-auth-oauthlib
