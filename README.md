@@ -66,7 +66,7 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 
 5. **서버 실행**
    ```bash
-   uv run python mcp_google_calendar.py
+   uv run python main.py
    ```
    - 실행 시 별도 메시지는 출력되지 않으며, MCP stdio 프로토콜로만 통신합니다.
 
@@ -79,7 +79,7 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 {
   "google-calendar": {
     "command": "uv",
-    "args": ["--directory", "<mcp_google_calendar_경로>", "run", "python", "mcp_google_calendar.py"]
+    "args": ["--directory", "<google_calendar_mcp_경로>", "run", "python", "main.py"]
   }
 }
 ```
@@ -89,5 +89,3 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 ## 참고 및 문의
 - Google Calendar API 공식 문서: https://developers.google.com/calendar/api
 - MCP/fastmcp 문서: https://github.com/anysphere/fastmcp
-
-문의사항이나 추가 요청사항이 있으면 언제든 말씀해 주세요! 
