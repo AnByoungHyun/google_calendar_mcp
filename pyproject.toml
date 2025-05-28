@@ -1,5 +1,5 @@
 [project]
-name = "google-calendar-mcp"
+name = "google_calendar_mcp"
 version = "0.1.0"
 description = "Google Calendar MCP stdio 서버"
 authors = ["AnByoungHyun <your@email.com>"]
@@ -13,4 +13,11 @@ dependencies = [
 ]
 
 [project.scripts]
-google-calendar-mcp = "google_calendar_mcp.main:main"
+google_calendar_mcp = "google_calendar_mcp.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+package = true
