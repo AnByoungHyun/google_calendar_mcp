@@ -72,6 +72,24 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 
 ---
 
+## MCP 서버 설치 방법
+
+### 1. 깃허브에서 직접 설치
+```bash
+git clone https://github.com/AnByoungHyun/google_calendar_mcp.git
+cd google_calendar_mcp
+uv pip install -r requirements.txt
+uv sync
+```
+
+### 2. uv로 바로 설치
+```bash
+uv pip install "git+https://github.com/AnByoungHyun/google_calendar_mcp.git"
+uv sync
+```
+
+---
+
 ## Cursor MCP 등록 예시
 
 `.cursor/mcp.json` 예시:
