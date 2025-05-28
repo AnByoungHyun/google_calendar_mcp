@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from google.auth.transport.requests import Request
 from typing import Optional, List, Any
 
-mcp = FastMCP("calendar")
+mcp = FastMCP("google-calendar")
 
 @mcp.tool()
 def list_month_events(year: int, month: int) -> dict[str, Any]:
