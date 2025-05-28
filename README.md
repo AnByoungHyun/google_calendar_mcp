@@ -31,13 +31,14 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 ---
 
 ## 1. uv 설치 (최초 1회만)
-```bash
 # macOS/Homebrew
 brew install uv
 
 # 또는 공식 설치 스크립트
 curl -Ls https://astral.sh/uv/install.sh | sh
-```
+
+# Windows (PowerShell)
+iwr -useb https://astral.sh/uv/install.ps1 | iex
 
 ## 2. MCP 패키지 다운로드
 ```bash
