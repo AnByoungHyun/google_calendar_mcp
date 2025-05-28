@@ -2,7 +2,9 @@
 name = "google_calendar_mcp"
 version = "0.1.0"
 description = "Google Calendar MCP stdio 서버"
-authors = ["AnByoungHyun <your@email.com>"]
+authors = [
+  { name = "AnByoungHyun", email = "abhyuni@gmail.com" }
+]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
