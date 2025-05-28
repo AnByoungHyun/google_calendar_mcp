@@ -1,0 +1,13 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+client_secret.json
+cursor_google_calendar_mcp_server_devel.md
+token.pickle
