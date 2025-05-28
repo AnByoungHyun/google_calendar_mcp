@@ -1,14 +1,16 @@
 [project]
-name = "google_calendar_mcp"
+name = "google-calendar-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Google Calendar MCP stdio 서버"
+authors = ["AnByoungHyun <your@email.com>"]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "fastmcp>=2.5.1",
-    "google-api-python-client>=2.170.0",
-    "google-auth>=2.40.2",
-    "google-auth-oauthlib>=1.2.2",
-    "mcp[cli]>=1.9.1",
-    "python-dotenv>=1.1.0",
+    "google-api-python-client",
+    "google-auth",
+    "google-auth-oauthlib",
+    "fastmcp"
 ]
+
+[project.scripts]
+google-calendar-mcp = "google_calendar_mcp.main:main"
