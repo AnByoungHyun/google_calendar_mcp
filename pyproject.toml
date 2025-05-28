@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-google_calendar_mcp = "google_calendar_mcp.__main__:main"
+google_calendar_mcp = "google_calendar_mcp.server:mcp.run"
 
 [build-system]
 requires = ["setuptools>=61.0"]

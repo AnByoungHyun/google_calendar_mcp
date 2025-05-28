@@ -188,24 +188,20 @@ wheels = [
 [[package]]
 name = "google-calendar-mcp"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "fastmcp" },
     { name = "google-api-python-client" },
     { name = "google-auth" },
     { name = "google-auth-oauthlib" },
-    { name = "mcp", extra = ["cli"] },
-    { name = "python-dotenv" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "fastmcp", specifier = ">=2.5.1" },
-    { name = "google-api-python-client", specifier = ">=2.170.0" },
-    { name = "google-auth", specifier = ">=2.40.2" },
-    { name = "google-auth-oauthlib", specifier = ">=1.2.2" },
-    { name = "mcp", extras = ["cli"], specifier = ">=1.9.1" },
-    { name = "python-dotenv", specifier = ">=1.1.0" },
+    { name = "fastmcp" },
+    { name = "google-api-python-client" },
+    { name = "google-auth" },
+    { name = "google-auth-oauthlib" },
 ]
 
 [[package]]
@@ -317,12 +313,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e7/bc/54aec2c334698cc575ca3b3481eed627125fb66544152fa1af927b1a495c/mcp-1.9.1.tar.gz", hash = "sha256:19879cd6dde3d763297617242888c2f695a95dfa854386a6a68676a646ce75e4", size = 316247 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a6/c0/4ac795585a22a0a2d09cd2b1187b0252d2afcdebd01e10a68bbac4d34890/mcp-1.9.1-py3-none-any.whl", hash = "sha256:2900ded8ffafc3c8a7bfcfe8bc5204037e988e753ec398f371663e6a06ecd9a9", size = 130261 },
-]
-
-[package.optional-dependencies]
-cli = [
-    { name = "python-dotenv" },
-    { name = "typer" },
 ]
 
 [[package]]

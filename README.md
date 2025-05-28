@@ -64,7 +64,9 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 
 5. **서버 실행**
    ```bash
-   uv run python main.py
+   uv run python google_calendar_mcp/server.py
+   # 또는 entry point 등록 시
+   uv run google_calendar_mcp
    ```
    - 실행 시 별도 메시지는 출력되지 않으며, MCP stdio 프로토콜로만 통신합니다.
 
