@@ -1,7 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 from google_calendar_mcp.google_auth import get_calendar_service
 from datetime import datetime, timedelta
-from google.auth.transport.requests import Request
 from typing import Optional, List, Any
 
 mcp = FastMCP("google_calendar_mcp")
@@ -69,5 +68,44 @@ def create_event(summary: str, start: str, end: str, description: str = None, lo
     event = service.events().insert(calendarId='primary', body=event_body).execute()
     return {"message": "일정이 등록되었습니다.", "event": event}
 
+@mcp.tool()
+def update_event(
+    event_id: str,
+    summary: Optional[str] = None,
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    description: Optional[str] = None,
+    location: Optional[str] = None,
+    attendees: Optional[List[str]] = None
+) -> dict[str, Any]:
+    """일정 ID로 일정 정보 수정 (전달된 값만 반영)"""
+    service = get_calendar_service()
+    # 기존 이벤트 조회
+    event = service.events().get(calendarId='primary', eventId=event_id).execute()
+    # 전달된 값만 업데이트
+    if summary is not None:
+        event['summary'] = summary
+    if description is not None:
+        event['description'] = description
+    if start is not None:
+        event['start'] = {'dateTime': start}
+    if end is not None:
+        event['end'] = {'dateTime': end}
+    if location is not None:
+        event['location'] = location
+    if attendees is not None:
+        event['attendees'] = [{'email': email} for email in attendees]
+    # patch로 업데이트
+    updated_event = service.events().patch(calendarId='primary', eventId=event_id, body=event).execute()
+    return {"message": "일정이 수정되었습니다.", "event": updated_event}
+
+# 아직은 Claude Destop 에서만 사용 가능
+# 일반 사용자들이 프롬프트 작성이 어려운 경우 이를 도와주는 도구로 활용할 수 있습니다.
+# @mcp.prompt("calendar_prompt")
+# def calendar_prompt(prompt: str) -> str:
+#     """Calendar prompt for google calendar"""
+#     return f"프롬프트 도구를 테스트 합니다. :\n{prompt}"
+
+
 if __name__ == "__main__":
-    mcp.run() 
+    mcp.run()
