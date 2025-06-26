@@ -26,7 +26,8 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 | 1달 치 일정 보기    | list_month_events           | 지정한 연/월의 모든 일정 목록 조회   |
 | 특정 일자 일정 보기 | list_day_events             | 지정한 날짜의 모든 일정 목록 조회    |
 | 일정 상세 보기      | get_event_detail            | 일정 ID로 상세 정보 조회             |
-| 일정 등록           | create_event                | 새로운 일정 생성 (참여자(이메일) 추가 가능)           |
+| 일정 등록           | create_event                | 새로운 일정 생성 (참여자(이메일) 추가 가능) |
+| 일정 수정           | update_event                | 일정 ID로 일정 정보 수정 (제목, 시간 등)   |
 
 ---
 
