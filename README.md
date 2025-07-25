@@ -3,6 +3,10 @@
 ## 개요
 Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 프로토콜로 일정을 조회, 생성, 상세 조회할 수 있습니다. 인증은 Google OAuth2를 사용합니다.
 
+<a href="https://glama.ai/mcp/servers/@AnByoungHyun/google_calendar_mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@AnByoungHyun/google_calendar_mcp/badge" alt="Google Calendar MCP server" />
+</a>
+
 ## 주요 기능
 - Google Calendar API 연동
 - MCP stdio 서버로 일정 조회, 생성, 상세 조회 기능 제공
