@@ -28,6 +28,7 @@ Google Calendar와 연동되는 MCP stdio 서버입니다. Cursor 등에서 MCP 
 | 일정 상세 보기      | get_event_detail            | 일정 ID로 상세 정보 조회             |
 | 일정 등록           | create_event                | 새로운 일정 생성 (참여자(이메일) 추가 가능) |
 | 일정 수정           | update_event                | 일정 ID로 일정 정보 수정 (제목, 시간 등)   |
+| 일정 삭제           | delete_event                | 일정 ID로 일정 삭제                       |
 
 ---
 

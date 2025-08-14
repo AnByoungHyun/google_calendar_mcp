@@ -99,12 +99,15 @@ def update_event(
     updated_event = service.events().patch(calendarId='primary', eventId=event_id, body=event).execute()
     return {"message": "일정이 수정되었습니다.", "event": updated_event}
 
-# 아직은 Claude Destop 에서만 사용 가능
-# 일반 사용자들이 프롬프트 작성이 어려운 경우 이를 도와주는 도구로 활용할 수 있습니다.
-# @mcp.prompt("calendar_prompt")
-# def calendar_prompt(prompt: str) -> str:
-#     """Calendar prompt for google calendar"""
-#     return f"프롬프트 도구를 테스트 합니다. :\n{prompt}"
+@mcp.tool()
+def delete_event(event_id: str) -> dict[str, Any]:
+    """일정 ID로 일정 삭제"""
+    service = get_calendar_service()
+    try:
+        service.events().delete(calendarId='primary', eventId=event_id).execute()
+        return {"message": "일정이 삭제되었습니다.", "event_id": event_id}
+    except Exception as e:
+        return {"error": f"일정 삭제 중 오류가 발생했습니다: {str(e)}"}
 
 
 if __name__ == "__main__":
