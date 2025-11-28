@@ -110,6 +110,60 @@ def delete_event(event_id: str) -> dict[str, Any]:
         return {"error": f"일정 삭제 중 오류가 발생했습니다: {str(e)}"}
 
 @mcp.tool()
+def search_events(
+    query: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    max_results: int = 50
+) -> dict[str, Any]:
+    """일정 검색 (키워드, 기간으로 검색)
+    
+    Args:
+        query: 검색할 키워드 (제목, 설명, 장소 등에서 검색)
+        start_date: 검색 시작 날짜 (YYYY-MM-DD, 선택사항)
+        end_date: 검색 종료 날짜 (YYYY-MM-DD, 선택사항)
+        max_results: 최대 결과 수 (기본값: 50)
+    
+    Returns:
+        검색된 일정 목록
+    """
+    service = get_calendar_service()
+    
+    # API 파라미터 구성
+    params = {
+        'calendarId': 'primary',
+        'maxResults': max_results,
+        'singleEvents': True,
+        'orderBy': 'startTime'
+    }
+    
+    # 검색어가 있으면 추가
+    if query:
+        params['q'] = query
+    
+    # 시작 날짜 설정
+    if start_date:
+        start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+        params['timeMin'] = start_dt.isoformat() + 'Z'
+    
+    # 종료 날짜 설정
+    if end_date:
+        end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+        # 해당 날짜의 끝까지 포함
+        end_dt = end_dt + timedelta(days=1)
+        params['timeMax'] = end_dt.isoformat() + 'Z'
+    
+    events_result = service.events().list(**params).execute()
+    events = events_result.get('items', [])
+    
+    return {
+        "count": len(events),
+        "search_query": query or "전체",
+        "period": f"{start_date or '처음'} ~ {end_date or '끝'}",
+        "events": events
+    }
+
+@mcp.tool()
 def find_free_slots(
     date: str,
     duration_minutes: int = 60,
